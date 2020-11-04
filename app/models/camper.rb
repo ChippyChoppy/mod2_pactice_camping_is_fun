@@ -1,6 +1,6 @@
 class Camper < ApplicationRecord
-    has_many :camper_activities
-    has_many :activities, through: :camper_activities
+    has_many :signups
+    has_many :activities, through: :signups
 
     validates :name, uniqueness: true
     validates :age, numericality: {greater_than: 7}

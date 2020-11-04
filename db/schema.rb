@@ -10,19 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_145828) do
+ActiveRecord::Schema.define(version: 2020_11_04_023846) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.integer "difficulty"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "camper_activities", force: :cascade do |t|
-    t.integer "camper_id"
-    t.integer "activity_id"
-    t.integer "signup"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_11_03_145828) do
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "signups", force: :cascade do |t|
+    t.integer "camper_id"
+    t.integer "activity_id"
+    t.integer "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_signups_on_activity_id"
+    t.index ["camper_id"], name: "index_signups_on_camper_id"
   end
 
 end

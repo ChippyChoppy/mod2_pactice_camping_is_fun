@@ -1,8 +1,8 @@
 <h2>Activity Signup</h2>
 
-<%= form_for @camper_activity do |f| %>
-    <% if flash[:camper_activity_errors] %>
-        <% flash[:camper_activity_errors].each do |error| %>
+<%= form_for @signup do |f| %>
+    <% if flash[:signup_errors] %>
+        <% flash[:signup_errors].each do |error| %>
             <%= error %>
         <% end %>
     <% end %>
@@ -11,8 +11,8 @@
     <%= f.collection_select :camper_id, @campers, :id, :name %></p>
     <p><%= f.label :activity_id %>
     <%= f.collection_select :activity_id, @activities, :id, :name %></p>
-    <p><%= f.label :signup %>
-    <%= f.number_field :signup %></p>
-    
+    <p><%= f.label :time %>
+    <%= f.number_field :time %></p>
+
     <p><%= f.submit %>
 <% end %>
